@@ -9,6 +9,5 @@ class Solution(object):
         for i,v in enumerate(nums):
             if parsed.has_key(target-v):
                 return [i, parsed[target-v]]
-            else:
-                parsed[v] = i
+            parsed[v] = i
         
