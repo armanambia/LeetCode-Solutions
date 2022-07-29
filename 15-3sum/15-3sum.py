@@ -4,23 +4,24 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[List[int]]
         """
-        res = [] 
-        nums = sorted(nums)
-        for i, v in enumerate(nums):
+        nums.sort()
+        res = []
+        for i,v in enumerate(nums):
             if i > 0 and nums[i] == nums[i-1]:
                 continue
-            s = i+1
-            e = len(nums) - 1
-            while s < e:
-                total = v + nums[s] + nums[e]
-                if total < 0:
-                    s += 1
+            f = i + 1
+            b = len(nums) - 1
+            while f < b:
+                target = [v, nums[f], nums[b]]
+                total = sum(target)
+                if  total < 0:
+                    f += 1
                 elif total > 0:
-                    e -= 1
+                    b -= 1
                 else:
-                    res.append([v,nums[s],nums[e]])
-                    s += 1
-                    while nums[s] == nums[s-1] and s < e:
-                        s += 1
+                    res.append(target)
+                    f += 1
+                    while f!= b and nums[f] == nums[f-1]:
+                        f += 1
+                    
         return res
-                
