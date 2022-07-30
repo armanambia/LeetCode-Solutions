@@ -10,21 +10,15 @@ class Solution(object):
         :type root: TreeNode
         :rtype: TreeNode
         """
-        node = root
-        if not root:
+        if root == None:
             return None
         
-        self.invertTreeHelper(root, root.left, root.right)
+        root.right, root.left = root.left, root.right
         
-        return node
+        self.invertTree(root.left)
+        self.invertTree(root.right)
+        
+        return root
         
         
-    def invertTreeHelper(self, root, left, right):
-        root.left = right
-        root.right = left
-        leftRoot = root.left
-        rightRoot = root.right
-        if leftRoot:
-            self.invertTreeHelper(leftRoot, leftRoot.left, leftRoot.right)
-        if rightRoot:
-            self.invertTreeHelper(rightRoot, rightRoot.left, rightRoot.right)
+   
