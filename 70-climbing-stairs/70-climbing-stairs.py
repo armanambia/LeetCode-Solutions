@@ -13,9 +13,6 @@ class Solution(object):
         # Find & Displaying
         
         while(i <= n):
-            # Next = f + s
-            # f = s
-            # s = Next
             f, s = s, f+s
             i += 1
         
