@@ -13,21 +13,18 @@ class Solution(object):
         """
         
         self.max_len = 0
-        self.diameter(root)
+        def height(root):
+            if not root:
+                return 0
+            left = height(root.left)
+            right = height(root.right)
+            self.max_len = max(self.max_len, left + right)
+            return 1 + max(left, right)
+        
+        height(root)
         return self.max_len
         
         
-    def diameter(self,root):
-        if root:
-            self.max_len = max(self.max_len, self.height(root.left) + self.height(root.right))
-            self.diameter(root.left)
-            self.diameter(root.right)
-        
-        
-    def height(self,root):
-        if not root:
-            return 0
-
-        return 1 + max(self.height(root.left), self.height(root.right))
+    
         
         
