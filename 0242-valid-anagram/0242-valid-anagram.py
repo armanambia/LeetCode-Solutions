@@ -13,6 +13,6 @@ class Solution(object):
             if hash_map1[x] < 0:
                 return False
         for value in hash_map1.values():
-            if value: 
+            if value > 0: 
                 return False
         return True
