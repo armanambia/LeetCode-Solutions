@@ -7,6 +7,6 @@ class Solution:
             hash_map[x] = hash_map.get(x, 0) + 1
         for x in t:
             hash_map[x] = hash_map.get(x, 0) - 1
-            if x not in hash_map or hash_map[x] < 0:
+            if hash_map[x] < 0:
                 return False
         return True
