@@ -7,11 +7,11 @@ class Solution(object):
         """
         if len(s) != len(t):
             return False
-        hash_map1 = {}
+        hash_map = {}
         for x in s:
-            hash_map1[x] = hash_map1.get(x, 0) + 1
+            hash_map[x] = hash_map.get(x, 0) + 1
         for x in t:
-            hash_map1[x] = hash_map1.get(x, 0) - 1
-            if hash_map1[x] == None or hash_map1[x] < 0:
+            hash_map[x] = hash_map.get(x, 0) - 1
+            if x not in hash_map or hash_map[x] < 0:
                 return False
         return True
