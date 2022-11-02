@@ -12,7 +12,7 @@ class Solution(object):
             hash_map1[x] = hash_map1.get(x, 0) - 1
             if hash_map1[x] < 0:
                 return False
-        for (a,v) in hash_map1.items():
-            if v: 
+        for value in hash_map1.values():
+            if value: 
                 return False
         return True
